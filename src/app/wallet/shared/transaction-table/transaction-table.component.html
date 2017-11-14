@@ -87,13 +87,6 @@
 
       <div class="container history_container" fxLayoutWrap layout-padding>
 
-        <!-- Narration -->
-        <!-- TODO: display only when it's included in the TX: -->
-        <div class="tx-detail-item" fxFlex="1 1 100%">
-          <span fxFlex="0 0 80px">Narration:</span>
-          <input fxFlex="1 1 calc(100% - 80px)" value=">> Narration content here <<" class="TO_DO narration input">
-        </div>
-
         <div fxFlex="1 1 calc(100% - 260px)" fxLayout="column">
           <!-- To/from (detail) -->
           <div class="tx-detail-item" fxFlex>
@@ -118,6 +111,13 @@
             <span>Net amount:</span>
             <span class="md-right">{{ tx.getNetAmount()}} PART</span>
           </div>
+        </div>
+
+        <!-- Narration -->
+        <!-- TODO: display only when it's included in the TX: -->
+        <div class="tx-detail-item" fxFlex="1 1 100%">
+          <span fxFlex="0 0 80px">Narration:</span>
+          <input fxFlex="1 1 calc(100% - 80px)" value=">> Narration content here <<" class="TO_DO narration input">
         </div>
 
       </div><!-- .history_cointainer -->
