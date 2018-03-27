@@ -10,6 +10,8 @@ import { ListingComponent } from './listing/listing.component';
 import { BuyComponent } from './buy/buy.component';
 import { SellComponent } from './sell/sell.component';
 import { AddItemComponent } from './sell/add-item/add-item.component';
+import {SendConfirmationModalComponent} from "../wallet/wallet/send/send-confirmation-modal/send-confirmation-modal.component";
+import {WalletModule} from "../wallet/wallet/wallet.module";
 
 
 
@@ -17,7 +19,8 @@ import { AddItemComponent } from './sell/add-item/add-item.component';
   imports: [
     CommonModule,
     routing,
-    CoreUiModule.forRoot()
+    CoreUiModule.forRoot(),
+    WalletModule.forRoot()
   ],
   declarations: [
     OverviewListingsComponent,

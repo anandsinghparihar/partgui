@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
 import {
   FormBuilder,
   FormGroup,
@@ -14,6 +15,8 @@ import { FavoritesService } from 'app/core/market/api/favorites/favorites.servic
 import { Listing } from 'app/core/market/api/listing/listing.model';
 import { Cart } from 'app/core/market/api/cart/cart.model';
 import { CountryList } from 'app/core/market/api/listing/countrylist.model';
+
+import { SendConfirmationModalComponent } from '../../wallet/wallet/send/send-confirmation-modal/send-confirmation-modal.component';
 
 @Component({
   selector: 'app-buy',
@@ -119,7 +122,8 @@ export class BuyComponent implements OnInit {
     private _profileService: ProfileService,
     private listingService: ListingService,
     private cartService: CartService,
-    private favoritesService: FavoritesService
+    private favoritesService: FavoritesService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -210,6 +214,21 @@ export class BuyComponent implements OnInit {
     delete address.updatedAt;
     delete address.createdAt;
     this.shippingFormGroup.setValue(address);
+  }
+
+  confirmAndPay(): void {
+    const dialogRef = this.dialog.open(SendConfirmationModalComponent);
+    // @TODO: assign send object in confirmation modal instance.
+    dialogRef.componentInstance.send = {};
+
+    dialogRef.componentInstance.onConfirm.subscribe(() => {
+      dialogRef.close();
+      this.pay();
+    });
+  }
+
+  pay() {
+    console.log('pay');
   }
 
 }

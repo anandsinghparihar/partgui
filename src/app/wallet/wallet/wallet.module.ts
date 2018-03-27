@@ -30,8 +30,6 @@ import { SignatureAddressModalComponent } from './shared/signature-address-modal
 import { FixWalletModalComponent } from './send/fix-wallet-modal/fix-wallet-modal.component';
 import { WalletFixedConfirmationComponent } from './send/fix-wallet-modal/wallet-fixed-confirmation/wallet-fixed-confirmation.component';
 
-
-
 @NgModule({
   imports: [
     CommonModule,
@@ -64,7 +62,8 @@ import { WalletFixedConfirmationComponent } from './send/fix-wallet-modal/wallet
     ReceiveComponent,
     SendComponent,
     HistoryComponent,
-    AddressBookComponent
+    AddressBookComponent,
+    SendConfirmationModalComponent
 
   ],
   entryComponents: [
@@ -93,7 +92,6 @@ export class WalletModule {
     };
   }
 }
-
 
 export { AddressBookComponent } from './address-book/address-book.component';
 export { ReceiveComponent } from './receive/receive.component';
